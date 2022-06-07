@@ -1,0 +1,23 @@
+.inputs {
+  width: "50px";
+}
+
+.img {
+  position: relative;
+  animation: mymove 3s infinite;
+}
+
+@keyframes mymove {
+  0% {
+    top: 0px;
+  }
+  25% {
+    top: 200px;
+  }
+  75% {
+    top: 50px;
+  }
+  100% {
+    top: 100px;
+  }
+}

@@ -1,0 +1,36 @@
+.container {
+  width: 300px;
+  height: 600px;
+  background-color: beige;
+  box-shadow: 10px 20px 20px grey;
+  border-radius: 35px;
+  text-align: left;
+  opacity: 90;
+}
+
+.firstname {
+  color: red;
+}
+.lastname {
+  color: red;
+}
+.email {
+  color: red;
+}
+.password {
+  color: red;
+}
+.confirmpassword {
+  color: red;
+}
+
+.input {
+  border: 1px solid blue;
+}
+.h1 {
+  text-align: center;
+}
+
+/* .submit {
+  align-items: center;
+} */
