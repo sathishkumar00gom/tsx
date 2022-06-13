@@ -15,12 +15,13 @@ const Home=()=>{
   const navigate=useNavigate()
 
   const use:any = useSelector((state:any)=>state.allusers.users)
-
+console.log(use,"used")
 
   const handleSubmit=(main:any)=>{
+    console.log(main,"aami")
     dispatch(deleteusers(main))
   }
-  const handleEdit=(use:any)=>{
+  const handleEdit=(use:number)=>{
     navigate(`/Edit/${use}`)
   }
 
@@ -82,16 +83,16 @@ const Home=()=>{
     <div className="row carousels mt-5 ms-2 d-flex ">
       
       {/* <Carousel> */}
-      { use?.map((main:any)=>{
+      {use.length>0&&use?.map((main:any)=>{
      return(
        <>
      <Card className="ms-4 mt-5" style={{width:"300px", height:"400px", backgroundColor:"white", boxShadow:"10px 20px 50px grey", alignItems:"center"}}>
        <form style={{display:"block", paddingLeft:"30px"}}>
          <Button className="mt-5" style={{justifyContent:"center"}}>email</Button>
         <div className="mt-3"  >{main.email}</div> 
-         {/* <Button className="mt-2" >password</Button>
-         <div className="mt-2">{main.password}</div> */}
-         <Button className="mt-2" >{main.id}</Button>
+         <Button className="mt-2" >password</Button>
+         <div className="mt-2">{main.password}</div>
+        
          </form>
          <Button className="mt-3 btn-warning" onClick={()=>handleEdit(main.id)}>Edit user</Button>
          <Button className="mt-3 btn-danger" onClick={()=>handleSubmit(main.id)}>Delete user</Button>

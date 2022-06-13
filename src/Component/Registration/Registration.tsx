@@ -6,6 +6,7 @@ import "./Registration.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { postusers } from "../../Redux/Action/Action";
+import {v4 as uuidv4} from "uuid";
 
 const Registration = () => {
   const navigate=useNavigate()
@@ -15,6 +16,7 @@ const Registration = () => {
   
   const formik = useFormik({
     initialValues: {
+      id:uuidv4(),
       firstName: "",
       lastName: "",
       email: "",
@@ -37,6 +39,7 @@ const Registration = () => {
    
       console.log("testing forvalues",values)
       dispatch( postusers(values))
+      
       navigate("/login")
     
 

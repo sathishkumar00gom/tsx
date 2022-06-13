@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import { Container,Form,Button } from 'react-bootstrap';
 import {  useFormik } from 'formik';
 import "./Login.css";
-import { getusers,postusers } from '../../Redux/Action/Action';
+import { postloginusers} from '../../Redux/Action/Action';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from "yup";
 import { useNavigate } from 'react-router-dom';
@@ -20,23 +20,9 @@ export default function Login() {
 
   const postValue:any = useSelector((state:any)=>state.allusers.postUser)
   
-  const getData = useSelector((state:any)=>state.allusers.users)
-
-  // console.log("get",getData)
-    
-  useEffect(()=>{
-    dispatch(getusers())
-  },[dispatch])
-
-  // useEffect(()=>{
-  //   if(postValue?.values?.email!==""){
-  //     setPostChecker({...postChecker,["email"]:postValue?.values?.email,["password"]:postValue?.values?.password})
-  //   }
-  // },[postValue])
+ 
 
 
-  // console.log("testForPost",postValue)
-  // console.log("testForget",getData.values)
   
 
   const formik = useFormik({
@@ -56,17 +42,19 @@ export default function Login() {
     onSubmit:(values:any) => {
      console.log("testingSubmit")
       console.log("vale",values)
-      console.log("vales",getData)
+      dispatch(postloginusers(values))
+      navigate("/Home")
+      //        )
+      // console.log("vales",getData)
        
-      function isChecking(data:any) {
-        return data.email === values.email
-      }
+      // function isChecking(data:any) {
+      //   return data.email === values.email
+      // }
       
-      let verifydata = getData.find(isChecking)
-      if(verifydata){
-             navigate("/Home"
-             )
-      }
+      // let verifydata = getData.find(isChecking)
+      // if(verifydata){
+      //        
+      // }
         
       }
     })
