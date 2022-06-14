@@ -20,6 +20,7 @@ console.log(use,"used")
   const handleSubmit=(main:any)=>{
     console.log(main,"aami")
     dispatch(deleteusers(main))
+    dispatch(getusers())
   }
   const handleEdit=(use:number)=>{
     navigate(`/Edit/${use}`)
@@ -84,6 +85,7 @@ console.log(use,"used")
       
       {/* <Carousel> */}
       {use.length>0&&use?.map((main:any)=>{
+        console.log("testformain",main)
      return(
        <>
      <Card className="ms-4 mt-5" style={{width:"300px", height:"400px", backgroundColor:"white", boxShadow:"10px 20px 50px grey", alignItems:"center"}}>
@@ -92,6 +94,7 @@ console.log(use,"used")
         <div className="mt-3"  >{main.email}</div> 
          <Button className="mt-2" >password</Button>
          <div className="mt-2">{main.password}</div>
+        
         
          </form>
          <Button className="mt-3 btn-warning" onClick={()=>handleEdit(main.id)}>Edit user</Button>

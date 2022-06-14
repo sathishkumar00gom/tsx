@@ -40,7 +40,7 @@ const Edit = () => {
 
 
     useEffect(()=>{
-        axios.get(`http://localhost:3008/getusers/${id}`)
+        axios.get(`http://localhost:3007/getusers/${id}`)
         .then((res)=>{console.log("me",res.data)
         setState(res.data)})
         .catch((err)=>err)
